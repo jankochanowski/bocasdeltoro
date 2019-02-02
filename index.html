@@ -7,6 +7,7 @@
     <style>
         /* #E87481 róż #FEAF6D żółty main: Clear Rain Clouds */
         body {
+       
         background-image: url(https://jankochanowski.github.io/bocasdeltoro/whybocas.png);
         background-repeat: no-repeat;
   background-attachment: fixed;
@@ -15,13 +16,14 @@
         
         }
         .wa-all {
+         
             background-color: #E87481;
             border-radius: 10px;
            
         }
         
-        .hum-text {
-            font-size: 20px;
+       .tempr {
+            font-size: 45px;
         }
         
        
@@ -35,15 +37,14 @@
         .grid-container {
             top: 200px;
             color: white;
-            font-family: sans-serif;
+            font-family: monospace;
             position: relative;
             display: grid;
-            max-width: 250px;
+            max-width: 270px;
             margin: auto;
             border-radius: 20px;
             grid-template-areas: 'main' 'main' 'footer';
             grid-gap: 6px;
-            /*background-color: white;*/
             padding: 6px;
         }
         
@@ -51,7 +52,8 @@
     
             background-color: #E87481;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            background-image: linear-gradient(to bottom right, #E87481, #FEAF6D);
+            background-image: linear-gradient(to bottom right, #8C899E, #7A7079);
+            
             text-align: center;
             border-radius: 20px;
             padding: 20px 15px;
@@ -79,7 +81,7 @@
        
         <div class="wapp-weather-icon">
         <span id="location">---</span><br><br>
-            <span id="temperature">-</span>&deg;<br><img id="icon" width="120px" src="https://jankochanowski.github.io/bocasdeltoro/sunnybocas-2.png"></div>
+            <div class="tempr"><span id="temperature">-</span>&deg;<br></div><img id="icon" width="90px" src="https://jankochanowski.github.io/bocasdeltoro/sunnybocas-2.png"></div>
 
         
         <div class=wa-footer>Integrated with <a href="https://openweathermap.org" target="_blank">Open Weather Map</a> API
@@ -146,7 +148,7 @@
             icon = document.getElementById("icon");
             humidity = document.getElementById("humidity");
 
-            //updateById(6695624);
+            updateById(3713954);
         }
     </script>
 
