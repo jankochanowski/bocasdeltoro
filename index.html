@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>One reason why Bocas del Toro</title>
+    <title>Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         /* #E87481 róż #FEAF6D żółty main: Clear Rain Clouds */
@@ -31,14 +31,16 @@
         
         
         .wa-all {
-         
+     
             background-color: #E87481;
             border-radius: 10px;
+           
            
         }
         
        .tempr {
             font-size: 45px;
+            
         }
         
        
@@ -50,21 +52,26 @@
        
         
         .grid-container {
-            top: 200px;
+           
+            top:300px;
+            margin: auto;
+            
+          
+            
             color: white;
             font-family: monospace;
             position: relative;
             display: grid;
             max-width: 270px;
-            margin: auto;
             border-radius: 20px;
-            grid-template-areas: 'main' 'main' 'footer';
+            grid-template-areas: 'main' 'footer';
             grid-gap: 6px;
             padding: 6px;
         }
         
         .grid-container > div {
-    
+        
+   
             background-color: #E87481;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             background-image: linear-gradient(to bottom right, #8C899E, #7A7079);
@@ -81,6 +88,7 @@
         .wa-footer {
             grid-area: footer;
             font-size: 10px;
+           
             
            
           
