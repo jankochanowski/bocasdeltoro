@@ -46,26 +46,28 @@
        
         
         .wapp-weather-icon {
-            grid-area: main;
+            margin-bottom:6px;
         }
         
        
         
         .grid-container {
+         
+           position:absolute;
+left:0;
+right:0;
+bottom:0;
+margin-left:auto;
+margin-right:auto;
            
-            top:300px;
+           
+           
             margin: auto;
-            
-          
-            
             color: white;
             font-family: monospace;
-            position: relative;
-            display: grid;
+            display: block;
             max-width: 270px;
             border-radius: 20px;
-            grid-template-areas: 'main' 'footer';
-            grid-gap: 6px;
             padding: 6px;
         }
         
@@ -86,7 +88,6 @@
         }
         
         .wa-footer {
-            grid-area: footer;
             font-size: 10px;
            
             
