@@ -1,14 +1,156 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Weather in Panama | Bocas del Toro</title>
-</head>
-<body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<head>
+    <title>Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* #E87481 róż #FEAF6D żółty main: Clear Rain Clouds */
+        body {
+        background-image: url(https://jankochanowski.github.io/bocasdeltoro/whybocas.png);
+        background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left top; 
+  background-size: 100% auto;
+        
+        }
+        .wa-all {
+            background-color: #E87481;
+            border-radius: 10px;
+           
+        }
+        
+        .hum-text {
+            font-size: 20px;
+        }
+        
+       
+        
+        .wapp-weather-icon {
+            grid-area: main;
+        }
+        
+       
+        
+        .grid-container {
+            top: 400px;
+            color: white;
+            font-family: sans-serif;
+            position: relative;
+            display: grid;
+            max-width: 250px;
+            margin: auto;
+            border-radius: 20px;
+            grid-template-areas: 'main' 'main' 'footer';
+            grid-gap: 6px;
+            /*background-color: white;*/
+            padding: 6px;
+        }
+        
+        .grid-container > div {
+    
+            background-color: #E87481;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background-image: linear-gradient(to bottom right, #E87481, #FEAF6D);
+            text-align: center;
+            border-radius: 20px;
+            padding: 20px 15px;
+        }
+        
+        #location {
+            font-size: 20px;
+        }
+        
+        .wa-footer {
+            grid-area: footer;
+            font-size: 10px;
+            
+           
+            box-shadow: none !important;
+            
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+
+       
+        <div class="wapp-weather-icon">
+        <span id="location">---</span><br><br>
+            <span id="temperature">-</span>&deg;<br><img id="icon" width="120px" src="https://jankochanowski.github.io/weather-app/cloudy.png"></div>
+
+        
+        <div class=wa-footer>Integrated with <a href="https://openweathermap.org" target="_blank">Open Weather Map</a> API
+            <br>Created with tutorial <a href="https://www.youtube.com/channel/UC06YNfpGTT93KxJBDF3wStg" target="_blank">Captain Coder</a></div>
+    </div>
+
+    <script>
+        var APPID = "b4cb6c3d8935561a2052a08a55cf3be1";
+        let loc;
+        let humidity;
+        let temp;
+        let icon;
+
+        function sendRequest(url) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 & xmlhttp.status == 200) {
+                    var data = JSON.parse(xmlhttp.responseText);
+                    var weather = {};
+                    if (data.weather[0].main == "Rain") {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/rain.png"
+                    } else if (data.weather[0].main == "Thunderstorm") {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/storm.png"
+                    } else if (data.weather[0].main == "Drizzle") {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/rain.png"
+                    } else if (data.weather[0].main == "Snow") {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/snow.png"
+                    } else if (data.weather[0].main == "Atmosphere") {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/cloudy.png"
+                    } else if (data.weather[0].main == "Clear") {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/sunny.png"
+                    } else if (data.weather[0].main == "Clouds") {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/cloudy.png"
+                    } else {
+                        weather.icon = "https://jankochanowski.github.io/weather-app/cloudy.png"
+                    };
+                    weather.humidity = data.main.humidity;
+                    weather.loc = data.name;
+                    weather.temp = data.main.temp;
+                    update(weather);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function updateById(id) {
+            var url = "https://api.openweathermap.org/data/2.5/weather?" +
+                "id=" + id +
+                "&APPID=" + APPID;
+            sendRequest(url);
+        }
+
+        function update(weather) {
+            loc.innerHTML = weather.loc;
+            temp.innerHTML = Math.round(weather.temp - 273.15);
+            humidity.innerHTML = weather.humidity;
+            icon.src = weather.icon;
+        }
+
+        window.onload = function() {
+            temp = document.getElementById("temperature");
+            loc = document.getElementById("location");
+            icon = document.getElementById("icon");
+            humidity = document.getElementById("humidity");
+
+            //updateById(6695624);
+        }
+    </script>
 
 </body>
+
 </html>
 
