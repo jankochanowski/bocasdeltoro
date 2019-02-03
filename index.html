@@ -7,26 +7,7 @@
     <style>
         /* #E87481 róż #FEAF6D żółty main: Clear Rain Clouds */
         
-        @media only screen and (min-width: 721px) {
-        body {
-       
-        background-image: url(https://jankochanowski.github.io/bocasdeltoro/whybocas.png);
-        background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: left top; 
-  background-size: 100% auto;
         
-        }
-        }
-        @media only screen and (max-width: 720px) {
-  body {
-      background-image: url(https://jankochanowski.github.io/bocasdeltoro/mobilebocas1.png);
-        background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: left top; 
-  background-size: 100% auto;
-  }
-        }
         
         
         
@@ -53,21 +34,12 @@
         
         .grid-container {
          
-           position:absolute;
-left:0;
-right:0;
-bottom:0;
-margin-left:auto;
-margin-right:auto;
-margin-bottom:30px;
-           
-           
-           
-          
+           position:relative;
+           margin:auto;
             color: white;
             font-family: monospace;
             display: block;
-            max-width: 270px;
+            max-width: 360px;
             border-radius: 20px;
             padding: 6px;
         }
@@ -77,7 +49,7 @@ margin-bottom:30px;
    
             background-color: #E87481;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            background-image: linear-gradient(to bottom right, #8C899E, #7A7079);
+            background-image: linear-gradient(to bottom right, #7494BB, #AFBCC8);
             
             text-align: center;
             border-radius: 20px;
@@ -89,8 +61,12 @@ margin-bottom:30px;
         }
         
         .wa-footer {
-            font-size: 8px;
-    
+            font-size: 12px;
+            background-color:white !important;
+            background-image:none !important;
+            color: black;
+            box-shadow: none !important;
+            margin-top:30px;
         
         }
         .cwbocas{
@@ -132,17 +108,37 @@ margin-bottom:30px;
   }
 }
 
+.imgtrimmed{
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            
+            
+            border-radius: 20px;
+            margin-bottom:6px;
+            margin-top:6px;
+           
+}
+div{margin-top:10px;
+margin-bottom:10px;}
+.onereas {
+font-size:18px;}
+strong {font-size:24px;
+color:  #3B3F5C;}
+
     </style>
 </head>
 
 <body>
+
     <div class="grid-container">
+    <div class="onereas"><p>One reason why going to<br> <strong>Bocas del Toro</strong><br>is always a good idea</p></div>
+    
 
        
         <div class="wapp-weather-icon">
         <p class="cwbocas">Current weather:</p>
         <span id="location">---</span><br><br>
             <div class="tempr"><span id="temperature">-</span>&deg;<br></div><img id="icon" width="60px" src="https://jankochanowski.github.io/bocasdeltoro/sunnybocas-2.png"></div>
+            <img class="imgtrimmed" src="https://jankochanowski.github.io/bocasdeltoro/bocas-4trimmed.png" width="100%">
 
         
         <div class=wa-footer>Integrated with <a href="https://openweathermap.org" target="_blank">Open Weather Map</a> API
@@ -216,5 +212,6 @@ margin-bottom:30px;
 </body>
 
 </html>
+
 
 
